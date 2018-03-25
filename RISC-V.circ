@@ -314,13 +314,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <circ-anchor facing="east" height="6" width="6" x="67" y="77"/>
     </appear>
     <wire from="(290,290)" to="(350,290)"/>
+    <wire from="(400,400)" to="(450,400)"/>
+    <wire from="(400,510)" to="(450,510)"/>
     <wire from="(290,280)" to="(340,280)"/>
     <wire from="(240,510)" to="(360,510)"/>
     <wire from="(290,240)" to="(290,250)"/>
     <wire from="(290,300)" to="(290,320)"/>
     <wire from="(240,510)" to="(240,590)"/>
-    <wire from="(440,580)" to="(550,580)"/>
-    <wire from="(440,440)" to="(550,440)"/>
     <wire from="(330,210)" to="(440,210)"/>
     <wire from="(340,230)" to="(440,230)"/>
     <wire from="(290,260)" to="(330,260)"/>
@@ -328,12 +328,12 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(350,250)" to="(440,250)"/>
     <wire from="(240,310)" to="(240,410)"/>
     <wire from="(240,410)" to="(240,450)"/>
+    <wire from="(400,440)" to="(550,440)"/>
+    <wire from="(400,580)" to="(550,580)"/>
     <wire from="(240,590)" to="(240,700)"/>
     <wire from="(350,250)" to="(350,290)"/>
     <wire from="(290,320)" to="(440,320)"/>
     <wire from="(290,270)" to="(440,270)"/>
-    <wire from="(440,510)" to="(450,510)"/>
-    <wire from="(440,400)" to="(450,400)"/>
     <wire from="(400,700)" to="(410,700)"/>
     <wire from="(240,700)" to="(320,700)"/>
     <wire from="(230,310)" to="(240,310)"/>
@@ -343,11 +343,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(240,450)" to="(380,450)"/>
     <wire from="(240,590)" to="(380,590)"/>
     <wire from="(240,450)" to="(240,510)"/>
-    <comp lib="0" loc="(440,580)" name="Bit Extender">
-      <a name="in_width" val="20"/>
-      <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
-    </comp>
     <comp lib="0" loc="(230,310)" name="Pin">
       <a name="width" val="32"/>
       <a name="tristate" val="false"/>
@@ -401,11 +396,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="output" val="true"/>
       <a name="width" val="7"/>
       <a name="label" val="opcode"/>
-    </comp>
-    <comp lib="0" loc="(440,400)" name="Bit Extender">
-      <a name="in_width" val="12"/>
-      <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
     </comp>
     <comp lib="0" loc="(410,700)" name="Pin">
       <a name="facing" val="west"/>
@@ -555,14 +545,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(550,440)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="32"/>
+      <a name="width" val="12"/>
       <a name="label" val="S"/>
       <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(550,580)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="32"/>
+      <a name="width" val="20"/>
       <a name="label" val="U"/>
       <a name="labelloc" val="east"/>
     </comp>
@@ -608,11 +598,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit11" val="1"/>
       <a name="bit12" val="4"/>
     </comp>
-    <comp lib="0" loc="(440,440)" name="Bit Extender">
-      <a name="in_width" val="12"/>
-      <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
-    </comp>
     <comp lib="0" loc="(320,700)" name="Splitter">
       <a name="fanout" val="5"/>
       <a name="incoming" val="32"/>
@@ -652,19 +637,14 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(450,510)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="32"/>
+      <a name="width" val="13"/>
       <a name="label" val="B"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,510)" name="Bit Extender">
-      <a name="in_width" val="13"/>
-      <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
     </comp>
     <comp lib="0" loc="(450,400)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="32"/>
+      <a name="width" val="12"/>
       <a name="label" val="I"/>
       <a name="labelloc" val="east"/>
     </comp>
