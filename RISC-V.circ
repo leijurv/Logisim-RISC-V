@@ -844,7 +844,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(580,570)" name="Bit Extender">
       <a name="in_width" val="1"/>
       <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
     </comp>
     <comp lib="3" loc="(470,580)" name="Comparator">
       <a name="width" val="32"/>
@@ -944,6 +943,9 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="funct7 i think"/>
     </comp>
+    <comp lib="6" loc="(521,600)" name="Text">
+      <a name="text" val="on if rs1 &lt; rs2"/>
+    </comp>
     <comp lib="0" loc="(410,700)" name="Splitter">
       <a name="fanout" val="1"/>
       <a name="incoming" val="32"/>
@@ -1027,9 +1029,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="width" val="32"/>
       <a name="shift" val="lr"/>
     </comp>
-    <comp lib="6" loc="(516,557)" name="Text">
-      <a name="text" val="on if rs1 &lt; rs2"/>
-    </comp>
     <comp lib="0" loc="(790,540)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1051,7 +1050,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="0" loc="(580,520)" name="Bit Extender">
       <a name="in_width" val="1"/>
       <a name="out_width" val="32"/>
-      <a name="type" val="sign"/>
     </comp>
     <comp lib="0" loc="(550,220)" name="Pin">
       <a name="facing" val="south"/>
