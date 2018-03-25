@@ -739,6 +739,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(180,290)" to="(320,290)"/>
+    <wire from="(180,390)" to="(320,390)"/>
     <comp lib="0" loc="(180,290)" name="Pin">
       <a name="width" val="32"/>
       <a name="tristate" val="false"/>
