@@ -4,7 +4,7 @@ This repo implements a RISC-V processor in the circuit simulation software Logis
 
 `RV32I-vanilla-logisim.circ` implements almost all of RV32I, but does not support misaligned reads and writes of multi byte values in RAM. This is due to a limitation in the RAM module in Logisim itself. In practice, this doesn't affect normal programs, but I've created a fork of Logisim that allows for this. The only modification is in `Logisim/src/com/cburch/logisim/std/memory/Ram.java`, starting around line 201.
 
-`RV32I-modded-logisim.circ` is the version that's actively developed
+`RV32I-modded-logisim.circ` is the version that's actively developed.
 
 `vanilla-logisim-2.7.1.jar` is provided for convenience, and my modification to Logisim can be found at `Logisim/dist/Logisim.jar`
 
