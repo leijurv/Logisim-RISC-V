@@ -12,7 +12,7 @@ This repo implements a RISC-V processor in the circuit simulation software Logis
 # Running a program
 This repo contains an example program (`sample.c`) and its compiled version (`samplerom.image`) as a sample (without needing to install the RISC-V GCC). The program demonstrates loops, function calls, floating point emulation, recursion, and memory allocation.
 
-First, start Logisim. This example will work with either the modified Logisim `java -jar Logisim/dist/Logisim.jar` or vanilla Logisim `java -jar vanilla-logisim-2.7.1.jar`.
+First, start Logisim. This example will work with vanilla Logisim `java -jar vanilla-logisim-2.7.1.jar`, and may work with the modified Logisim `java -jar Logisim/dist/Logisim.jar` (but compatibility isn't guaranteed).
 
 Open `RV32I-modded-logisim.circ` (or `RV32I-vanilla-logisim.circ`). 
 

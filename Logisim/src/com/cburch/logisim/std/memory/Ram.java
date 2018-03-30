@@ -23,6 +23,7 @@ import com.cburch.logisim.instance.InstanceState;
 import com.cburch.logisim.instance.Port;
 import com.cburch.logisim.instance.StdAttr;
 import com.cburch.logisim.proj.Project;
+import com.cburch.logisim.std.io.ECall;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -244,6 +245,13 @@ public class Ram extends Mem {
             state.setPort(DATA, Value.createKnown(dataBits, val), DELAY);
         } else {
             state.setPort(DATA, Value.createUnknown(dataBits), DELAY);
+        }
+        MemContents contents = myState.getContents();
+        if (contents.getLogLength() == 24 && contents.getWidth() == 32) {
+            ECall.mainRam = contents;
+        }
+        if (contents.getLogLength() == 5 && contents.getWidth() == 32) {
+            ECall.registers = contents;
         }
     }
 
