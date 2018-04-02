@@ -211,7 +211,8 @@ public class Ram extends Mem {
 
                         int val = contents.get(loc / 4);
                         byte[] v = encode(val);
-                        v[loc % 4] = toStore[i];
+                        v[3 - loc % 4] = toStore[3 - i];
+                        //v[loc % 4] = toStore[i];
                         //System.out.println("Writing " + decode(v) + " to " + loc / 4);
                         contents.set(loc / 4, decode(v));
                     }
@@ -235,7 +236,8 @@ public class Ram extends Mem {
 
                     byte[] v = encode(val2);
 
-                    toStore[i] = v[loc % 4];
+                    //toStore[i] = v[loc % 4];
+                    toStore[3 - i] = v[3 - loc % 4];
                 }
                 val = decode(toStore);
             } else {

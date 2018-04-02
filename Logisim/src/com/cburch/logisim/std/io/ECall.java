@@ -25,6 +25,7 @@ public class ECall extends InstanceFactory {
 
     public static MemContents mainRam;
     public static MemContents registers;
+    public static int brk = 5;
 
     private static final int CLR = 0;
     private static final int CK = 1;
@@ -95,6 +96,11 @@ public class ECall extends InstanceFactory {
         }
     }
 
+    private static int decode(byte[] bi) { // https://stackoverflow.com/questions/11421905/java-integer-to-byte-and-byte-to-integer
+        return bi[3] & 0xFF | (bi[2] & 0xFF) << 8
+                | (bi[1] & 0xFF) << 16 | (bi[0] & 0xFF) << 24;
+    }
+
     private static byte[] encode(int i) {
         return new byte[]{(byte) (i >>> 24), (byte) ((i << 8) >>> 24),
             (byte) ((i << 16) >>> 24), (byte) ((i << 24) >>> 24)
@@ -132,14 +138,45 @@ public class ECall extends InstanceFactory {
                         if (syscallType == 93) {
                             System.out.println("Program is exiting");
                         }
+                        if (syscallType == 80) {
+                            System.out.println("Fstat " + reg.get(10) + " " + reg.get(11) + " " + reg.get(12));
+                            byte[] data = {-96, 46, 117, 67, 41, 7, 0, 0, -112, 33, 1, 0, -11, 1, 0, 0, 4, 0, 0, 0, 5, 0, 0, 16, 119, -123, -62, 90, 0, 0, 0, 0, 104, -91, 81, 15, 0, 0, 0, 0, 119, -123, -62, 90, 0, 0, 0, 0, -56, 23, 102, 15, 0, 0, 0, 0, 119, -123, -62, 90, 0, 0, 0, 0, -56, 23, 102, 15};
+
+                            for (int i = 0; i < data.length; i++) {
+                                //write toStore[i] to addr+i
+                                int loc = reg.get(11) + i;
+                                byte[] tmp2 = encode(loc);
+                                tmp2[0] = 0;
+                                loc = decode(tmp2);
+
+                                int val = mainRam.get(loc / 4);
+                                byte[] v = encode(val);
+                                v[3 - loc % 4] = data[i];
+                                //v[loc % 4] = toStore[i];
+                                //System.out.println("Writing " + decode(v) + " to " + loc / 4);
+                                mainRam.set(loc / 4, decode(v));
+                            }
+                            reg.set(10, 0);
+                        }
+                        if (syscallType == 214) {
+
+                            int res = brk;
+                            brk = res + reg.get(10);
+                            System.out.println("SBRK " + reg.get(10) + " " + res + " " + brk);
+                            reg.set(10, res);
+                        }
+
                         if (syscallType == 64) {
 
                             int fd = reg.get(10);
                             int pointer = reg.get(11);
+                            byte[] tmp = encode(pointer);
+                            tmp[0] = 0;
+                            pointer = decode(tmp);
                             int len = reg.get(12);
                             System.out.println("Writing " + fd + " " + pointer + " " + len);
                             for (int i = 0; i < len; i++) {
-                                char c = (char) encode(ram.get((pointer + i) / 4))[(pointer + i) % 4];
+                                char c = (char) encode(ram.get((pointer + i) / 4))[3 - (pointer + i) % 4];
                                 System.out.print(c);
                                 state.add(c);
                             }
